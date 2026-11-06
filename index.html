@@ -11,7 +11,8 @@
 
     <!-- This is a practice form. It does not send or save information. -->
     <form id="volunteerForm" novalidate>
-        <label for="fullName">Full Name</label>
+        //1: label "for" didnt match the input's id ("name") //
+        <label for="name">Full Name</label>
         <input type="text" id="name" name="name">
 
         <label for="email">Email Address</label>
@@ -19,6 +20,8 @@
 
         <label for="interest">Area of Interest</label>
         <select id="interest" name="interest">
+            // 2: empty placeholder option so no interest is pre-selected//
+            <option value="">-- Select an interest --</option>
             <option value="outreach">Community Outreach</option>
             <option value="events">Event Support</option>
             <option value="mentoring">Youth Mentoring</option>
@@ -27,7 +30,8 @@
         <button type="submit">Submit Interest</button>
     </form>
 
-    <p id="result"></p>
+    //3: aria-live so screen readers announce feedback when it changes//
+    <p id="result" role="status" aria-live="polite"></p>
 
     <script src="volunteer.js"></script>
 </body>
